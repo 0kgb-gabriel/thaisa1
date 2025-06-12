@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Dia dos Namorados</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: auto;
+      overflow-y: auto;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffe6f0;
+      text-align: center;
+      padding: 30px;
+      color: #4e0032;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    p.mensagem {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+    .carta-container {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .carta-container:hover {
+      transform: scale(1.05);
+    }
+    .conteudo-carta {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .fotos-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+    .quad-frame {
+      width: 250px;
+      height: 250px;
+      border: 8px solid #fff;
+      box-shadow: 0 0 15px rgba(255, 0, 100, 0.5);
+      overflow: hidden;
+      animation: pulse 2s infinite;
+    }
+    .quad-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+    .texto-carta {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      background: rgba(255,255,255,0.8);
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .emoji {
+      position: fixed;
+      top: -50px;
+      font-size: 2rem;
+      animation: fall 10s linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+    .lista-amor {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 500px;
+      font-size: 1.2rem;
+    }
+    .lista-amor ul {
+      padding: 0;
+      list-style: none;
+    }
+    .lista-amor li::before {
+      content: "❤️ ";
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz Dia dos Namorados! ❤️</h1>
+  <p class="mensagem">Hoje é o nosso primeiro Dia dos Namorados juntos. Que seja o primeiro de muitos! Você é minha parte favorita de todos os dias. Só queria dizer que te amo mais do que palavras podem expressar.</p>
+
+  <div class="carta-container" onclick="abrirCarta()">
+    <h2>📩 Clique aqui para abrir a carta</h2>
+    <div class="conteudo-carta" id="conteudo-carta">
+      <div class="texto-carta">
+        <p>Thaisa, minha noiva-namorada,<br><br>
+        Este é o nosso primeiro Dia dos Namorados juntos — e, curiosamente, ainda nem somos oficialmente namorados. Desejo todo o sucesso para nós e que, nos próximos anos, possamos celebrar essa data com uma relação cada vez mais sólida e duradoura.<br><br>
+        Queria colocar uma foto de cada encontro que tivemos, mas não somos muito bons com fotos... rs. Ainda assim, quero me lembrar de cada momento que passamos juntos. Saiba que você tem um lugar muito especial no meu coração.<br><br>
+        É complicado, eu tenho muita dificuldade com as palavras, embora eu goste de me expressar. Não sei quantas vezes já disse, e nem quantas vezes vou dizer o quanto eu gosto de você. Sei que você acha que palavras são só palavras, mas para mim são emoções que coloco em letras. Por isso quero dizer:<br><br>
+        Te amo! ❤️</p>
+
+        <div class="fotos-container">
+          <div class="quad-frame">
+            <img src="https://i.imgur.com/3wJrR9O.jpeg" alt="Foto 1">
+          </div>
+          <div class="quad-frame">
+            <img src="https://i.imgur.com/WD23w74.jpeg" alt="Foto 2">
+          </div>
+          <div class="quad-frame">
+            <img src="https://i.imgur.com/yp26KvP.jpeg" alt="Foto 3">
+          </div>
+          <div class="quad-frame">
+            <img src="https://i.imgur.com/4RWsJN0.jpeg" alt="Foto 4">
+          </div>
+        </div>
+
+        <div class="lista-amor">
+          <h3>10 coisas que amo em você:</h3>
+          <ul>
+            <li>Seu sorriso</li>
+            <li>Seus olhos</li>
+            <li>Seu senso de humor</li>
+            <li>O jeito que é carinhosa</li>
+            <li>Suas brincadeiras</li>
+            <li>Seus beijos</li>
+            <li>Eu amo sempre pensar em você</li>
+            <li>Gosto do seu jeito de me irritar</li>
+            <li>Amo conversar com você</li>
+            <li>Principalmente, amo estar com você</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function abrirCarta() {
+      var conteudo = document.getElementById('conteudo-carta');
+      conteudo.style.display = conteudo.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function criarEmoji() {
+      const emoji = document.createElement('div');
+      emoji.classList.add('emoji');
+      emoji.style.left = Math.random() * 100 + 'vw';
+      emoji.style.animationDuration = (5 + Math.random() * 5) + 's';
+      emoji.textContent = '🌹';
+      document.body.appendChild(emoji);
+      setTimeout(() => {
+        emoji.remove();
+      }, 10000);
+    }
+    setInterval(criarEmoji, 300);
+  </script>
+</body>
+</html>
